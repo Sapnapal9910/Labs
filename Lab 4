@@ -1,0 +1,171 @@
+Question 1---->Create one superclass HillStations and three subclasses Manali, Mussoorie, Gulmarg. Subclasses extend the superclass and override its location() and famousFor() method.
+                            i.call the location() and famousFor() method by the Parent class’, i.e. Hillstations class. As it refers to the base class object and the base class method overrides the superclass method; the base class method is invoked at runtime. 
+                           ii.call the location() and famousFor() method by the all subclass’,and print accordingly.
+
+
+Answer 1--->package com.demo;
+
+
+class HillStations {
+    
+                                                                                                                                                    // Method to be overridden by subclasses
+    public void location() {
+        System.out.println("Location: Unknown");
+    }
+    
+    public void famousFor() {
+        System.out.println("Famous For: Unknown");
+    }
+}
+
+                                                                                                                                                     // Subclass: Manali
+class Manali extends HillStations {
+    
+                                                                                                                                                                @Override
+    public void location() {
+        System.out.println("Location: Manali, Himachal Pradesh");
+    }
+    
+                                                                                                                                                                 @Override
+    public void famousFor() {
+        System.out.println("Famous For: Beautiful landscapes and adventure sports");
+    }
+}
+
+                                                                                                                                                              // Subclass: Mussoorie
+class Mussoorie extends HillStations {
+    
+                                                                                                                                                              @Override
+    public void location() {
+        System.out.println("Location: Mussoorie, Uttarakhand");
+    }
+    
+                                                                                                                                                              @Override
+    public void famousFor() {
+        System.out.println("Famous For: Scenic views and colonial architecture");
+    }
+}
+
+                                                                                                                                     // Subclass: Gulmarg
+class Gulmarg extends HillStations {
+    
+                                                                                                                               @Override
+    public void location() {
+        System.out.println("Location: Gulmarg, Jammu & Kashmir");
+    }
+    
+                                                                                                                                   @Override
+    public void famousFor() {
+        System.out.println("Famous For: Skiing and winter sports");
+    }
+}
+
+public class Hillstation {
+    public static void main(String[] args) {
+                                                                                                             // i. Call location() and famousFor() using the parent class reference
+        HillStations hillStation = new HillStations();
+        hillStation.location();                                                             // This will call the superclass method
+        hillStation.famousFor();                                                        // This will call the superclass method
+        
+        System.out.println();
+         
+                                                                                                          // ii. Call location() and famousFor() using the subclass objects
+        HillStations manali = new Manali();                
+        HillStations mussoorie = new Mussoorie();
+        HillStations gulmarg = new Gulmarg();
+        
+        System.out.println("Manali Details:");
+        manali.location();
+        manali.famousFor();
+        
+        System.out.println("\nMussoorie Details:");
+        mussoorie.location();
+        mussoorie.famousFor();
+        
+        System.out.println("\nGulmarg Details:");
+        gulmarg.location();
+        gulmarg.famousFor();
+    }
+    }
+
+       Output -->
+        Location: Unknown
+        Famous For: Unknown
+
+        Manali Details:
+        Location: Manali, Himachal Pradesh
+        Famous For: Beautiful landscapes and adventure sports
+
+        Mussoorie Details:
+        Location: Mussoorie, Uttarakhand
+        Famous For: Scenic views and colonial architecture
+
+        Gulmarg Details:
+        Location: Gulmarg, Jammu & Kashmir
+        Famous For: Skiing and winter sports
+
+Question 2----->Write a Java program that demonstrates method overriding by creating a superclass called Animal and two subclasses called Dog and Cat.
+                            ● The Animal class should have a method called makeSound(), which simply prints "The animal makes a sound."
+                            ● The Dog and Cat classes should override this method to print "TheCat/The dog meows/barks" respectively.
+                            ● The program should allow the user to create and display objects of each class.
+
+Answer 2----->
+
+package com.demo;
+
+                                                                                                                    //Superclass: Animal
+class Animal {
+                                                                                                                    // Method in the Animal class that will be overridden
+ public void makeSound() {
+     System.out.println("The animal makes a sound.");
+ }
+}
+
+                                                                                                                    //Subclass: Dog
+class Dog extends Animal {
+                                                                                                                   // Overriding the makeSound method for Dog
+                                                                                                                      @Override
+ public void makeSound() {
+     System.out.println("The dog barks.");
+ }
+}
+
+                                                                                                                         //Subclass: Cat
+class Cat extends Animal {
+                                                                                                                          // Overriding the makeSound method for Cat
+                                                                                                                                @Override
+ public void makeSound() {
+     System.out.println("The cat meows.");
+ }
+}
+
+public class Animaldemo {
+ public static void main(String[] args) {
+                                                                                                                           // Creating objects of each class
+     Animal animal = new Animal();                                                              // Object of Animal class
+     Dog dog = new Dog();                                                                              // Object of Dog class
+     Cat cat = new Cat();                                                                                 // Object of Cat class
+     
+                                                                                                                         // Displaying the sounds made by each animal
+     System.out.println("Animal makes sound:");
+     animal.makeSound();                                                                             // Calls Animal's makeSound()
+
+     System.out.println("\nDog makes sound:");
+     dog.makeSound();                                                                                 // Calls Dog's overridden makeSound()
+
+     System.out.println("\nCat makes sound:");
+     cat.makeSound();                                                                                  // Calls Cat's overridden makeSound()
+ }
+}
+
+   Output---->
+   Animal makes sound:
+   The animal makes a sound.
+
+    Dog makes sound:
+   The dog barks.
+
+   Cat makes sound:
+   The cat meows.
+
+
