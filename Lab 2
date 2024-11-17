@@ -1,0 +1,75 @@
+Question 1--->Write a program to input two numbers and find the maximum between two numbers using the conditional/ternary operator.
+  Answer 1--->
+
+package com.demo;
+
+import java.util.Scanner;
+
+public class Ternarynum{
+    public static void main(String[] args) {
+                                                                                                           // Create a Scanner object for input
+        Scanner scanner = new Scanner(System.in);
+
+                                                                                                         // Input two numbers
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+
+                                                                                                         // Find the maximum using the ternary operator
+        int max = (num1 > num2) ? num1 : num2;
+ 
+                                                                                                       // Display  max
+        System.out.println("The maximum number is: " + max);
+        
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+    Output:-
+    Enter the first number: 20
+    Enter the second number: 40
+    The maximum number is: 40
+
+
+Question 2---->Write a program to declare  a variable for integer number.Assign a value to it and shift it to left and right using shift operators.
+You can use shift by 1 place,  shift by 2 places.Print output for both left & right shifts.
+Answer 2---->
+
+
+package com.demo;
+
+public class Shiftop {
+    public static void main(String[] args) {
+                                                                                                                         // Declare an integer variable 
+        int number = 68;                                                                                   // Change the value
+                                                                                                                        // Left shift by 1 place
+        int leftShiftBy1 = number << 1;
+
+                                                                                                                        // Left shift by 2 places
+        int leftShiftBy2 = number << 2;
+
+                                                                                                                     // Right shift by 1 place
+        int rightShiftBy1 = number >> 1;
+
+                                                                                                                      // Right shift by 2 places
+        int rightShiftBy2 = number >> 2;
+
+                                                                                                                       // Print  results
+        System.out.println("Original number: " + number);
+        System.out.println("Left shift by 1 place: " + leftShiftBy1);
+        System.out.println("Left shift by 2 places: " + leftShiftBy2);
+        System.out.println("Right shift by 1 place: " + rightShiftBy1);
+        System.out.println("Right shift by 2 places: " + rightShiftBy2);
+    }
+}
+
+
+     Output:-
+      Original number: 68
+      Left shift by 1 place: 136
+      Left shift by 2 places: 272
+      Right shift by 1 place: 34
+      Right shift by 2 places: 17
