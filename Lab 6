@@ -1,0 +1,41 @@
+Assume that you are a Java Developer in XYZ Software Solution and tries to compile and run the
+
+following thread program:
+
+class ThreadClass implements Runnable {
+
+public void run() {
+
+System.out.println("Running thread...");
+
+}
+
+}
+
+class Test {
+
+public static void main(String args[]) throws Exception {
+
+Thread thread1 = new Thread();
+
+Thread thread2 = new Thread(new ThreadClass());
+
+Thread thread3 = new Thread(new ThreadClass(), "Thread3");
+
+Thread thread4 = new Thread("Thread4");
+
+Thread thread5 = new Thread("Thread5", 5); //1
+
+Thread thread6 = new Thread("Thread6", new MyClass()); //2
+
+}
+
+}
+
+What happen when you compile and run the preceding program?
+
+Select one or more:
+ Program generates compilation error at //1
+ Program generates compilation error at //2
+ Program generates runtime error
+ Program compiles successfully and displays Running thread...
