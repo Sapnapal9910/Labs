@@ -1,0 +1,101 @@
+Question 1---->
+Write a program to prints numbers from 0 to 4 using thread
+
+Answer 1---->
+package statedemo;
+
+class PrintNumbersThread extends Thread {
+    @Override
+    public void run() {
+                                                                                                               // Print numbers from 0 to 4
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
+            try {
+                                                                                                             // Adding a small delay between numbers
+                Thread.sleep(500);                                                       // Sleep for 500 milliseconds (0.5 seconds)
+            } catch (InterruptedException e) {
+                System.out.println("Thread interrupted");
+            }
+        }
+    }
+}
+
+public class ThreadExample {
+    public static void main(String[] args) {
+                                                                                                                                  // Create an instance of the thread
+        PrintNumbersThread thread = new PrintNumbersThread();
+        
+                                                                                                                                                  // Start the thread
+        thread.start();
+        
+                                                                                                                        // Main thread can perform other tasks while the number thread runs
+        try {
+            thread.join(); // Ensures main thread waits for number thread to finish
+        } catch (InterruptedException e) {
+            System.out.println("Main thread interrupted");
+        }
+
+        System.out.println("Number printing is done.");
+    }
+}
+
+Output---->
+1
+2
+3
+4
+Number printing is done.
+
+Question 2---->
+Write a program to prints 1 to 10 and sleep for 1000ms using thread
+
+Answer 2---->
+package statedemo;
+
+class PrintNumbersThread extends Thread {
+    @Override
+    public void run() {
+                                                                                              // Print numbers from 1 to 10
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+            try {
+                                                                                                // Sleep for 1000 milliseconds (1 second)
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("Thread interrupted");
+            }
+        }
+    }
+}
+
+public class NumberPrinter {
+    public static void main(String[] args) {
+                                                                                                        // Create an instance of the thread
+        PrintNumbersThread thread = new PrintNumbersThread();
+        
+                                                                                              // Start the thread
+        thread.start();
+        
+                                                                                                  // Main thread can perform other tasks while the number thread runs
+        try {
+            thread.join();                                                             // Ensures main thread waits for number thread to finish
+        } catch (InterruptedException e) {
+            System.out.println("Main thread interrupted");
+        }
+
+        System.out.println("Number printing is done.");
+    }
+}
+
+Output---->
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Number printing is done.
