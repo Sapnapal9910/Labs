@@ -1,0 +1,111 @@
+Question 1---->
+Write a Java program to associate the specified value with the specified key in a HashMap.
+Declare HashMap add 10 values as user input.
+
+Answer 1-->
+package statedemo;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class HashMap1 {
+    public static void main(String[] args) {
+                                                                                                                                            // Declare a HashMap
+        HashMap<Integer, String> map = new HashMap<>();
+
+                                                                                                                                        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+                                                                                                                                      // Add 10 values to the HashMap
+        System.out.println("Enter 10 key-value pairs (integer key and string value):");
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Enter key (integer): ");
+            int key = scanner.nextInt(); // Read integer key
+            scanner.nextLine(); // Consume newline character
+            System.out.print("Enter value (string): ");
+            String value = scanner.nextLine(); // Read string value
+            map.put(key, value); // Associate key with value in HashMap
+        }
+
+                                                                                                                                  // Display the HashMap
+        System.out.println("\nThe HashMap contains:");
+        for (Integer key : map.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + map.get(key));
+        }
+
+                                                                                                                                              // Close the scanner
+        scanner.close();
+    }
+}
+
+Output---->
+Enter 10 key-value pairs (integer key and string value):
+Enter key (integer): 1
+Enter value (string): Apple
+Enter key (integer): 2
+Enter value (string): Banana
+Enter key (integer): 3
+Enter value (string): Cherry
+Enter key (integer): 4
+Enter value (string): Date
+Enter key (integer): 5
+Enter value (string): Elderberry
+Enter key (integer): 6
+Enter value (string): Fig
+Enter key (integer): 7
+Enter value (string): Grape
+Enter key (integer): 8
+Enter value (string): Honeydew
+Enter key (integer): 9
+Enter value (string): Kiwi
+Enter key (integer): 10
+Enter value (string): Lemon
+
+The HashMap contains:
+Key: 1, Value: Apple
+Key: 2, Value: Banana
+Key: 3, Value: Cherry
+Key: 4, Value: Date
+Key: 5, Value: Elderberry
+Key: 6, Value: Fig
+Key: 7, Value: Grape
+Key: 8, Value: Honeydew
+Key: 9, Value: Kiwi
+Key: 10, Value: Lemon
+  
+Question  2---->
+.Write a Java program to check whether a HashMap contains key-value mappings (empty) or not.
+Answer 2-->
+
+package statedemo;
+import java.util.HashMap;
+public class HashMapCheck {
+
+
+     public static void main(String[] args) {
+                                                                                                                                                    // Declare a HashMap
+        HashMap<Integer, String> map = new HashMap<>();
+
+                                                                                                                               // Check if the HashMap is empty initially
+        if (map.isEmpty()) {
+            System.out.println("The HashMap is empty.");
+        } else {
+            System.out.println("The HashMap is not empty.");
+        }
+
+                                                                                                                                        // Add some elements to the HashMap
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Cherry");
+
+                                                                                                                                        // Check again if the HashMap is empty
+        if (map.isEmpty()) {
+            System.out.println("The HashMap is empty.");
+        } else {
+            System.out.println("The HashMap is not empty.");
+        }
+    }
+}
+OutPut---->
+The HashMap is empty.
+The HashMap is not empty.
+
