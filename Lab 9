@@ -1,0 +1,153 @@
+Question 1--->
+Create a HashMap as phonedirectory. Add entries in phonedirectory as  id, name and number.
+With user input take name of a user and search in phonedirectory.
+Display result whether name is available in phonedirectory or not using HashMap methods.
+
+Answer 1--->
+package statedemo;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class PhoneDirectory {
+    public static void main(String[] args) { 
+                                                                                                   // Create a HashMap to store the phone directory
+        HashMap<Integer, String> phoneDirectory = new HashMap<>();
+                                                                                                     // Adding entries (id, name, number) into the phone directory
+        phoneDirectory.put(1, "Alice - 1234567890");
+        phoneDirectory.put(2, "Bob - 9876543210");
+        phoneDirectory.put(3, "Charlie - 5555555555");
+        phoneDirectory.put(4, "David - 4444444444");
+        phoneDirectory.put(5, "Eve - 1111111111");
+                                                                                                  // Display all entries in the phone directory
+        System.out.println("Phone Directory:");
+        phoneDirectory.forEach((id, details) -> System.out.println("ID: " + id + ", Details: " + details));
+                                                                                                          // Take user input for the name to search
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nEnter the name to search in the phone directory: ");
+        String nameToSearch = scanner.nextLine();
+                                                                                                                            // Search for the name in the phone directory
+        boolean found = false;
+        for (String details : phoneDirectory.values()) {
+            if (details.contains(nameToSearch)) {
+                System.out.println("\nResult: Name found in phone directory -> " + details);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("\nResult: Name not found in phone directory.");
+        }
+                                                                                                                                      // Close the scanner
+        scanner.close();
+    }
+}
+
+Output--->
+Phone Directory:
+ID: 1, Details: Alice - 1234567890
+ID: 2, Details: Bob - 9876543210
+ID: 3, Details: Charlie - 5555555555
+ID: 4, Details: David - 4444444444
+ID: 5, Details: Eve - 1111111111
+
+Enter the name to search in the phone directory: 
+
+Question 2---->
+Create a TreeMap as userdetails. Add entries in   userdetails  as name and age.
+create methods as add users, search users in userdetails with exit method as well.
+Display result as menu to work on all userdetails methods.
+
+Answer 2--->
+package statedemo;
+
+import java.util.Scanner;
+import java.util.TreeMap;
+public class UserDetails {
+
+	    private TreeMap<String, Integer> userDetails = new TreeMap<>();
+
+	                                                                                       // Method to add a user
+	    public void addUser(String name, int age) {
+	        userDetails.put(name, age);
+	        System.out.println("User added successfully: " + name + " - " + age);
+	    }
+
+	                                                                                                             // Method to search for a user
+	    public void searchUser(String name) {
+	        if (userDetails.containsKey(name)) {
+	            System.out.println("User found: " + name + " - Age: " + userDetails.get(name));
+	        } else {
+	            System.out.println("User not found: " + name);
+	        }
+	    }
+
+	                                                                                                     // Method to display all users
+	    public void displayAllUsers() {
+	        if (userDetails.isEmpty()) {
+	            System.out.println("No users in the system.");
+	        } else {
+	            System.out.println("User Details:");
+	            userDetails.forEach((name, age) -> System.out.println("Name: " + name + ", Age: " + age));
+	        }
+	    }
+
+                                                                                     	    // Main method with menu
+	    public static void main(String[] args) {
+	        UserDetails manager = new UserDetails();
+	        Scanner scanner = new Scanner(System.in);
+
+	        while (true) {
+	            // Display menu
+	            System.out.println("\n--- User Details Menu ---");
+	            System.out.println("1. Add User");
+	            System.out.println("2. Search User");
+	            System.out.println("3. Display All Users");
+	            System.out.println("4. Exit");
+	            System.out.print("Enter your choice: ");
+                   
+	            int choice = scanner.nextInt();
+	            scanner.nextLine();                                                                     // Consume newline
+
+	            switch (choice) {
+	                case 1:
+                                                                                                              	                    // Add user
+	                    System.out.print("Enter name: ");
+	                    String name = scanner.nextLine();
+	                    System.out.print("Enter age: ");
+	                    int age = scanner.nextInt();
+	                    manager.addUser(name, age);
+	                    break;
+
+	                case 2:
+                                                                                                          	                    // Search user
+	                    System.out.print("Enter name to search: ");
+	                    String searchName = scanner.nextLine();
+	                    manager.searchUser(searchName);
+	                    break;
+
+	                case 3:
+	                                                                                                            // Display all users
+	                    manager.displayAllUsers();
+	                    break;
+
+	                case 4:
+	                                                                                                               // Exit
+	                    System.out.println("Exiting program. Goodbye!");
+	                    scanner.close();
+	                    return;
+
+	                default:
+	                    System.out.println("Invalid choice. Please try again.");
+	            }
+	        }
+	    }
+	}
+OutPut---->
+
+--- User Details Menu ---
+1. Add User
+2. Search User
+3. Display All Users
+4. Exit
+Enter your choice:
